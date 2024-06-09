@@ -40,9 +40,9 @@ const contactsSlice = createSlice({
           contact => contact.id !== action.payload
         );
       })
-      .addMatcher(action => action.type.endsWith('/pending)'), handleLoading)
+      .addMatcher(action => action.type.endsWith('/pending'), handleLoading)
       .addMatcher(action => action.type.endsWith('/rejected'), handleFailure);
   },
 });
 
-export default contactsSlice.reducer;
+export const contactsReducer = contactsSlice.reducer;

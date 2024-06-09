@@ -1,18 +1,67 @@
-import React from 'react';
-import { Input } from './Sections/Input';
-import { Contacts } from './Sections/Contacts';
-import { Filter } from './Sections/Filter';
-import css from './App.module.css';
+import React, { useEffect, lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Layout } from './Layout';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { useAuth } from 'hooks/useAuth';
+import { refreshUser } from '../Redux/OperationsAPI';
+import { Loader } from './Loader';
+
+const LoginSection = lazy(() =>
+  import('../Pages/Login').then(module => ({ default: module.Login }))
+);
+const RegisterSection = lazy(() =>
+  import('../Pages/Register').then(module => ({ default: module.Register }))
+);
+const ContactsSection = lazy(() =>
+  import('../Pages/Contacts').then(module => ({ default: module.Contacts }))
+);
+const HomeSection = lazy(() =>
+  import('../Pages/Home').then(module => ({ default: module.Home }))
+);
 
 export const App = () => {
-  return (
-    <div className={css.app}>
-      <h2>Phonebook</h2>
-      <Input />
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
-      <h2>Contacts</h2>
-      <Filter />
-      <Contacts />
-    </div>
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomeSection />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute redirectTo="/contacts">
+                <RegisterSection />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute redirectTo="/contacts">
+                <LoginSection />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <ContactsSection />
+              </PrivateRoute>
+            }
+          />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };

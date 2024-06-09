@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'components/Redux/FilterSlice';
 import css from '../Styles/Filter.module.css';
 import PropTypes from 'prop-types';
 
@@ -8,7 +7,7 @@ export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleFilterChange = event => {
-    dispatch(setFilter(event.target.value));
+    dispatch(filter(event.target.value));
   };
 
   return (
