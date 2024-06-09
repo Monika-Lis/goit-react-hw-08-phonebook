@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 import { addContact } from '../Redux/OperationsAPI';
 import { getContacts } from '../Redux/Selectors';
 import css from '../Styles/Input.module.css';
+import { nanoid } from 'nanoid';
 
 export const Input = () => {
   const [name, setName] = useState('');
@@ -26,7 +27,7 @@ export const Input = () => {
       return;
     }
 
-    dispatch(addContact({ name, number }));
+    dispatch(addContact({ id: nanoid(), name, number }));
     setName('');
     setNumber('');
   };
