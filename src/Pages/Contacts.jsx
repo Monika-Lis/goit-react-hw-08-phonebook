@@ -19,7 +19,7 @@ export const Contacts = () => {
 
   return (
     <HelmetProvider>
-      <div>
+      <div className={css.container}>
         <Helmet>
           <title>Your Contacts</title>
         </Helmet>

@@ -1,0 +1,25 @@
+@media (max-width: 440px) {
+  .nav {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px;
+  }
+}
+
+@media (min-width: 441px) and (max-width: 768px) {
+  .nav {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav {
+    justify-content: flex-end;
+  }
+
+  .active {
+    color: #ea8a3c;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}

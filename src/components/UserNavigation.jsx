@@ -7,10 +7,10 @@ export const UserNavigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
+    <nav className={css.nav}>
       <NavLink
         to="/"
-        className={navData => (navData.isActive ? CSS.active : CSS.link)}
+        className={navData => (navData.isActive ? css.active : css.link)}
       >
         Home
       </NavLink>

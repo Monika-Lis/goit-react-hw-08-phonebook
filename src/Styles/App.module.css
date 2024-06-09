@@ -1,11 +1,18 @@
-.app {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  height: 600px;
-  align-items: center;
-  overflow: auto;
-  background-color: rgb(244, 246, 180);
-  border-radius: 30px;
-  margin: 40px auto;
+@media (min-width: 320px) and (max-width: 440px) {
+}
+
+@media (min-width: 441px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 600px;
+    align-items: center;
+    overflow: auto;
+    border-radius: 30px;
+    margin: 40px auto;
+  }
 }

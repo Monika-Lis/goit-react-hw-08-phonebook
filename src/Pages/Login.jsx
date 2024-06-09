@@ -26,22 +26,19 @@ export const Login = () => {
           <title>Login</title>
         </Helmet>
         <form className={css.form} onSubmit={handleLogin} autoComplete="off">
-          <label className={css.label}>Email</label>
-          <input
-            className={css.input}
-            type="email"
-            name="email"
-            placeholder="Please enter your email"
-            required
-          />
-          <label className={css.label}>Password</label>
-          <input
-            className={css.input}
-            type="password"
-            name="password"
-            placeholder="Please enter your password"
-            required
-          />
+          <div className={css.wrap}>
+            <label className={css.label}>Email</label>
+            <input className={css.input} type="email" name="email" required />
+          </div>
+          <div className={css.wrap}>
+            <label className={css.label}>Password</label>
+            <input
+              className={css.input}
+              type="password"
+              name="password"
+              required
+            />
+          </div>
           <button className={css.button} type="submit">
             Log in
           </button>

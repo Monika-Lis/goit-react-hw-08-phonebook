@@ -13,8 +13,10 @@ export const UserLogout = () => {
 
   return (
     <div className={css.userMenu}>
-      <h2>{user.name}</h2>
-      <button onClick={handleLogout}>Log Out</button>
+      <h2 className={css.h2}>{user.name}</h2>
+      <button className={css.button} onClick={handleLogout}>
+        Log Out
+      </button>
     </div>
   );
 };

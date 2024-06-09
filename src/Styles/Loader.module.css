@@ -1,0 +1,13 @@
+@media (min-width: 320px) and (max-width: 440px) {
+}
+
+@media (min-width: 441px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) {
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

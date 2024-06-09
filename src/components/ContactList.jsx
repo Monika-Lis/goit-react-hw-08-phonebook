@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from '../Redux/Selectors';
 import { deleteContact } from '../Redux/OperationsAPI';
-import css from '../Styles/Contacts.module.css';
+import css from '../Styles/ContactList.module.css';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -19,15 +19,14 @@ export const ContactList = () => {
     <table className={css.table}>
       <thead>
         <tr>
-          <th>Name</th>
+          <th className={css.name}>Name</th>
           <th>Phone Number</th>
-          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
         {filteredContacts.map(contact => (
           <tr className={css.trBody} key={contact.id}>
-            <td>{contact.name}</td>
+            <td className={css.name}>{contact.name}</td>
             <td>{contact.number}</td>
             <td className={css.tdButton}>
               <button

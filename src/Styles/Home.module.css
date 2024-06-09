@@ -1,0 +1,26 @@
+@media (min-width: 320px) and (max-width: 440px) {
+  .h1 {
+    color: #ea8a3c;
+    margin: 15px 15px;
+    text-align: center;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 441px) and (max-width: 768px) {
+  .h1 {
+    color: #ea8a3c;
+    margin: 15px 15px;
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  .h1 {
+    color: #ea8a3c;
+    margin: 15px 15px;
+    text-align: center;
+    font-size: 40px;
+  }
+}
